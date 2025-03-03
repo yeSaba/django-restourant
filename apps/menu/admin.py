@@ -16,3 +16,20 @@ class ChefAdmin(admin.ModelAdmin):
     search_fields = ['position',
                      'first_name',
                      'last_name', ]
+
+@admin.register(FoodType)
+class FoodTypeAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    search_fields = ['name']
+
+@admin.register(Food)
+class FoodAdmin(admin.ModelAdmin):
+    list_display = [
+        'name',
+        'price',
+        'description',
+        'ingredients',
+        'calories',
+        'food_type'
+    ]
+    search_fields = ['food_type']

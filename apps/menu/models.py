@@ -15,3 +15,31 @@ class Chef(models.Model):
     class Meta:
         verbose_name = 'Шеф повар'
         verbose_name_plural = 'Шеф повара'
+
+
+
+class FoodType(models.Model):
+    name = models.CharField('Тип', max_length=50)
+
+    def __str__(self):
+        return  self.name
+
+    class Meta:
+        verbose_name = 'Тип блюда'
+        verbose_name_plural = 'Типы блюд'
+
+class Food(models.Model):
+    image = models.ImageField(upload_to='media/', null=True, blank=True)
+    name = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    description = models.TextField()
+    ingredients = models.TextField()
+    calories = models.IntegerField()
+    food_type = models.ForeignKey(FoodType, on_delete=models.CASCADE, related_name='foods')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Бладо'
+        verbose_name_plural = 'Блюда'

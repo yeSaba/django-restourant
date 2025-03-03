@@ -7,7 +7,7 @@ class ContactUsForm(forms.ModelForm):
         model = ContactUs
         fields = ['name', 'email', 'subject', 'text']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Name"}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': "Email"}),
             'subject': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Subject"}),
             'text': forms.Textarea(attrs={'class': 'form-control', 'placeholder': "Message"}),
