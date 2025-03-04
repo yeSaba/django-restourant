@@ -14,3 +14,9 @@ class FoodListView(ListView):
     model = Food
     template_name = 'pages/menu.html'
     context_object_name = 'foods'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        food_types = FoodType.objects.all()
+        context['food_types'] = food_types
+        return context
