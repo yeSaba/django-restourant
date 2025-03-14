@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'restorandb',
-        'USER': 'resto_user',
+        'NAME': 'restoran_db',
+        'USER': 'restoran_user',
         'PASSWORD': 'qwerty123',
         'HOST': '127.0.0.1', # or 'localhost'
         'PORT': '5432'
