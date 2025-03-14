@@ -21,7 +21,7 @@ class ContactUs(models.Model):
 
 
 class NewsLetter(models.Model):
-    email = models.EmailField('Электронная почта', max_length=100, unique=True)
+    email = models.EmailField('Электронная почта', max_length=100, unique=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
