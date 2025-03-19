@@ -10,9 +10,6 @@ class ChefListView(ListView):
     context_object_name = 'chefs'
     paginate_by = 4
 
-
-
-
 class FoodListView(ListView):
     model = Food
     template_name = 'pages/menu.html'

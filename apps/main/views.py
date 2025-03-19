@@ -5,19 +5,19 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 from .forms import *
 from .models import *
-from apps.menu.models import Chef, FoodType, Food
+from apps.menu.models import Chef, Food
 
 class HomeView(TemplateView):
     template_name = 'pages/index.html'
+    model = Booking
+    form_class = BookingForm
+    success_url = reverse_lazy('home')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        chefs = Chef.objects.all()
-        context['chefs'] = chefs
-        foods = Food.objects.all()
-        context['foods'] = foods
-        book = Booking.objects.all()
-        context['booking'] = book
+        context['chefs'] = Chef.objects.all()[:4]
+        context['foods'] = Food.objects.all()
+        context['booking_form'] = BookingForm()
         return  context
 
 class ContactUs(CreateView):
